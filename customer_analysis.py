@@ -33,9 +33,9 @@ def check_missing_values(df):
 
 def replace_values_age(df):
     """
-    Replace values with 0.00 for null values in the column Age
+    Replace values with 0 for null in the column age
     """
-    df['age'] = df['age'].replace(0.00, np.nan)
+    df['age'] = df['age'].replace(0, np.nan)
     return df
 
 
@@ -97,10 +97,10 @@ def clean_data(df):
     print(df.dtypes)
     
     print("\nFormatting values in categorical columns...")
-    columns_to_lowercase = ['profession', 'gender']
-    df = columns_to_lowercase(df, columns_to_lowercase)
+    columns = ['profession', 'gender']
+    df = columns_to_lowercase(df, columns)
 
-    print("Checking for missing values...")
+    print("\nChecking for missing values...")
     print(check_missing_values(df))
 
     print("\nImputing missing values in column 'profession' with the mode... ")
@@ -110,6 +110,8 @@ def clean_data(df):
     df = replace_values_age(df)
     df = impute_missing_values(df, 'age')
     
+    print("\nCleaning done!")
+
     return df
 
 # Carga de los datos desde github
