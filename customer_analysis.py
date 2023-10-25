@@ -13,6 +13,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 def clean_column_names(df):
     """
     Clean column names by replacing spaces with underscores, removing special characters, 
